@@ -8,7 +8,7 @@ def funcao_processamento():
     # Apresentação do resultado
     print(f'A quantidade de passos para o pirata será de {qtd_passos}')
 
-
+ 
 
 if __name__=='__main__':
 

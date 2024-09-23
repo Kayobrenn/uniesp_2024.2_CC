@@ -1,7 +1,9 @@
 # Função de processamento do programa
 def funcao_processamento():
     print('Digite o seu tipo de animal favorito:')
+
     print('1 - Mamífero \n2 - Réptil')
+    
     opcao = int(input('Qual sua opção:'))
 
     if opcao == 1:
