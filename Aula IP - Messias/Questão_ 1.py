@@ -1,12 +1,12 @@
 # Função de processamento do programa
 def funcao_processamento():
     # Valores Aleatórios
-    x = 10 # int(input('Digite os passos até x: ' ))
-    y = 15 # int(input('Digite os passos até y: ' ))
+    qtd_norte = float(input('Digite a quantidade de passos para o Norte: ')) #
+    qtd_lest = float(input('Digite a quantidade de passos para o Leste: '))
     # Soma da quantidade de passos
-    qtd_passos = x + y
+    qtd_passos = qtd_norte + qtd_lest
     # Apresentação do resultado
-    print(f'A quantidade de passos para o pirata será de {qtd_passos}')
+    print(f'A quantidade de passos para o pirata chegar até o tesouro será de {qtd_passos}')
 
  
 

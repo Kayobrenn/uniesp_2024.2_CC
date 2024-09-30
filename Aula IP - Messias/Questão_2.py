@@ -5,12 +5,16 @@ def funcao_processamento():
 
     total_liga_metalica = qtd_ferro + qtd_ouro
 
-    if (qtd_ferro/total_liga_metalica) >= 0.7:
-        print('A sua armadura será massa!!!')
+    if (total_liga_metalica) >=70:
+        print('A sua armadura tem a combinação esperada!!!')
     else:
-        print('Essa armadura vai quebrar!!!')
+        print('A sua armadura não atende aos críterios!!!')
 
 if __name__=='__main__':
+
+    # Mensagem de inicio do programa
+    print("--- --- Iniciando o programa --- ---")
+
     # Processamento realizado pelo programa
     funcao_processamento()
 

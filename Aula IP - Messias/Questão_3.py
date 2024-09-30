@@ -12,6 +12,10 @@ def funcao_processamento():
         print('Caramba! Você curte tartarugas!')
 
 if __name__=='__main__':
+
+    # Mensagem de inicio do programa
+    print("--- --- Iniciando o programa --- ---")
+
     # Processamento realizado pelo programa
     funcao_processamento()
 
