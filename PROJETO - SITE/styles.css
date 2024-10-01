@@ -3,12 +3,15 @@ h3 {
     font-style: italic;
     color: rgb(0, 197, 241);
     margin: 4px;
+    font-weight: 400;
 }
 
 #name-Aluguel {
     margin: 0;
     font-family: Arial, sans-serif;
     font-style: italic;
+    font-size: large;
+    font-weight: 450;
 }
 
 #barcologo {
@@ -57,4 +60,26 @@ nav a {
 
 a:hover {
     color: rgb(0, 197, 241);
+}
+
+.hero {
+    position: relative;
+    text-align: left;
+}
+
+.hero img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+
 }
