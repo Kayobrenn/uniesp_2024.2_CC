@@ -1,8 +1,8 @@
 def funcao_processamento():
     Distancia = 1000
 
-    dragao1 = float(input("Digite o tempo do dragão 1:"))
-    dragao2 = float(input("Digite o tempo do dragão 2:"))
+    dragao1 = float(input("Digite a velocidade do dragão 1:"))
+    dragao2 = float(input("Digite a velocidade do dragão 2:"))
 
     vel_dga1 = Distancia / dragao1
     vel_dga2 = Distancia / dragao2

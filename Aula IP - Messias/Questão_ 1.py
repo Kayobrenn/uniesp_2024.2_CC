@@ -6,7 +6,7 @@ def funcao_processamento():
     # Soma da quantidade de passos
     qtd_passos = qtd_norte + qtd_lest
     # Apresentação do resultado
-    print(f'A quantidade de passos para o pirata chegar até o tesouro será de {qtd_passos}')
+    print(f'A quantidade de passos para o pirata chegar até o tesouro será de {qtd_passos} passos!')
 
  
 
