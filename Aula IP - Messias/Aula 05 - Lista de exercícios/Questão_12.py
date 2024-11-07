@@ -24,6 +24,6 @@ if __name__ == '__main__':
     
     print('--- --- Iniciando Programa --- ---')
 
-    escolha()
+    batalha()
 
     print('--- --- Fim do Programa --- ---')
