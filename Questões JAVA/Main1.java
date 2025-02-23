@@ -5,6 +5,6 @@ public class Main1 {
 
         double salario = valorhora * quantidadehoras;
 
-        System.out.println("O salario do funcionario é " + salario + " Reais");
+        System.out.println("O salario do funcionário é " + salario + " Reais");
     }
 }
