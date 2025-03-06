@@ -2,11 +2,11 @@ function coletarDados() {
     let alturas = [];
     let generos = [];
     
-    for (let i = 0; i < 15; i++) {  // Altere de 2 para 15 aqui
+    for (let i = 0; i < 15; i++) {
         let altura = parseFloat(prompt(`Digite a altura da pessoa ${i + 1}:`));
         let genero = prompt(`Digite o gênero da pessoa ${i + 1} (Masculino ou Feminino):`).toLowerCase().trim();
         
-        // Verificação para garantir que o gênero seja válido
+       
         while (genero !== 'masculino' && genero !== 'feminino') {
             alert("Gênero inválido. Por favor, digite 'Masculino' ou 'Feminino'.");
             genero = prompt(`Digite o gênero da pessoa ${i + 1} (Masculino ou Feminino):`).toLowerCase().trim();
@@ -58,5 +58,5 @@ function main() {
     alert(`Número de pessoas do gênero Feminino: ${numeroFeminino}`);
 }
 
-// Chama a função principal
+
 main();
