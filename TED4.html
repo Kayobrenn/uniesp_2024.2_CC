@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Compras</title>
+</head>
+<body>
+
+    <h2>Calculadora de Compras</h2>
+    <button onclick="exibirResumo()">Fazer Compra</button>
+    <p id="resultado"></p>
+
+    <script>
+        
+        function calcularTotal(precoUnitario, quantidade) {
+            return precoUnitario * quantidade;
+        }
+
+        
+        function aplicarDesconto(valorTotal) {
+            if (valorTotal > 100) {
+                return valorTotal * 0.9;
+            }
+            return valorTotal;
+        }
+
+        
+        function exibirResumo() {
+            
+            let preco = parseFloat(prompt("Digite o preço unitário do produto:"));
+            let quantidade = parseInt(prompt("Digite a quantidade comprada:"));
+
+            
+            if (isNaN(preco) || isNaN(quantidade) || preco <= 0 || quantidade <= 0) {
+                alert("Por favor, insira valores válidos.");
+                return;
+            }
+
+            
+            let valorTotal = calcularTotal(preco, quantidade);
+            let valorComDesconto = aplicarDesconto(valorTotal);
+
+            
+            let mensagem = `
+                <strong>Resumo da Compra:</strong><br>
+                - Valor total antes do desconto: R$ ${valorTotal.toFixed(2)}<br>
+                - Valor final com desconto: R$ ${valorComDesconto.toFixed(2)}
+            `;
+
+            document.getElementById("resultado").innerHTML = mensagem;
+        }
+    </script>
+
+</body>
+</html>
