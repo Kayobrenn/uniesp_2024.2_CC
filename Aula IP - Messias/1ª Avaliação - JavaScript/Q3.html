@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Programa JS com prompt</title>
+</head>
+<body>
+  <script>
+    
+    let N = parseInt(prompt("Quantos números você deseja digitar?"));
+
+    if (isNaN(N) || N <= 0) {
+    alert("Por favor, digite um número válido maior que zero.");
+    } else {
+    let soma = 0;
+    let menor = null;
+    let maior = null;
+
+    for (let i = 1; i <= N; i++) {
+        let numero = parseFloat(prompt(`Digite o ${i}º número:`));
+
+        if (isNaN(numero)) {
+        alert("Valor inválido. Tente novamente.");
+        i--;
+        continue;
+        }
+
+        soma += numero;
+
+        if (menor === null || numero < menor) {
+        menor = numero;
+        }
+
+        if (maior === null || numero > maior) {
+        maior = numero;
+        }
+    }
+
+    alert(`Menor número: ${menor}\nMaior número: ${maior}\nSoma total: ${soma}`);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Programa JS com prompt</title>
+</head>
+<body>
+  <h2>Abra o console para ver o programa rodando</h2>
+  <script>
+  let populacaoA = 80000;
+  let populacaoB = 200000;
+  let taxaCrescimentoA = 0.03;
+  let taxaCrescimentoB = 0.015;
+  let anos = 0;
+
+  while (populacaoA < populacaoB) {
+  populacaoA += populacaoA * taxaCrescimentoA;
+  populacaoB += populacaoB * taxaCrescimentoB;
+  anos++;
+  }
+
+  console.log(`Levará ${anos} anos para a população do país A ultrapassar ou igualar a população do país B.`);
+  console.log(`População final de A: ${Math.floor(populacaoA)}`);
+  console.log(`População final de B: ${Math.floor(populacaoB)}`);
+  
+  </script>
+</body>
+</html>

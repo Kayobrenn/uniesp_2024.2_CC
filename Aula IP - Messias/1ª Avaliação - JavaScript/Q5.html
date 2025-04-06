@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Área e Perímetro do Círculo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2d3436;
+    }
+
+    button {
+      background-color: #00a8ff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0077cc;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      color: #2d3436;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Calculadora de Círculo</h1>
+  <button onclick="calcularCirculo()">Calcular Área e Perímetro</button>
+
+  <div class="resultado" id="saida"></div>
+
+  <script>
+    function calcularCirculo() {
+      let entrada = prompt("Digite o raio do círculo:");
+      let raio = parseFloat(entrada);
+
+      if (isNaN(raio) || raio <= 0) {
+        alert("Valor inválido! Por favor, digite um número positivo.");
+        return;
+      }
+
+      const pi = Math.PI;
+      const area = pi * raio * raio;
+      const perimetro = 2 * pi * raio;
+
+      document.getElementById("saida").innerHTML = `
+        Raio informado: ${raio}<br>
+        Área do círculo: ${area.toFixed(2)}<br>
+        Perímetro (circunferência): ${perimetro.toFixed(2)}
+      `;
+    }
+  </script>
+
+</body>
+</html>

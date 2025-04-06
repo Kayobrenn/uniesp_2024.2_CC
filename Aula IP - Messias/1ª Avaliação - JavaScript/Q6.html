@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Investimento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #219150;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 18px;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Simulador de Retorno de Investimento</h1>
+  <button onclick="calcularInvestimento()">Calcular Montante</button>
+
+  <div class="resultado" id="saida"></div>
+
+  <script>
+    function calcularInvestimento() {
+      let capital = parseFloat(prompt("Digite o capital inicial (R$):"));
+      let taxa = parseFloat(prompt("Digite a taxa de juros mensal (%):"));
+      let tempo = parseInt(prompt("Digite o tempo do investimento (em meses):"));
+
+      if (isNaN(capital) || isNaN(taxa) || isNaN(tempo) || capital <= 0 || taxa < 0 || tempo <= 0) {
+        alert("Por favor, insira valores válidos e positivos.");
+        return;
+      }
+
+      let i = taxa / 100;
+      let montante = capital * Math.pow(1 + i, tempo);
+
+      document.getElementById("saida").innerHTML = `
+        Capital inicial: R$ ${capital.toFixed(2)}<br>
+        Taxa de juros: ${taxa.toFixed(2)}% ao mês<br>
+        Tempo: ${tempo} meses<br><br>
+        <strong>Montante final: R$ ${montante.toFixed(2)}</strong>
+      `;
+    }
+  </script>
+
+</body>
+</html>

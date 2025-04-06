@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Reajuste Salarial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      background: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1c5980;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #2c3e50;
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Calculadora de Salário Atual</h1>
+  <button onclick="versaoFixa()">Versão com salário fixo (R$ 1000,00)</button>
+  <button onclick="versaoPrompt()">Versão com salário digitado</button>
+
+  <div class="resultado" id="saida"></div>
+
+  <script>
+    function versaoFixa() {
+      let salario = 1000;
+      let anoAtual = new Date().getFullYear();
+      let percentual = 0.0015; // 0.15%
+
+      for (let ano = 1996; ano <= anoAtual; ano++) {
+        salario += salario * percentual;
+        percentual *= 2;
+      }
+
+      document.getElementById("saida").innerHTML =
+        `Salário atual (versão fixa): R$ ${salario.toFixed(2)}`;
+    }
+
+    function versaoPrompt() {
+      let entrada = prompt("Digite o salário inicial do funcionário:");
+      let salario = parseFloat(entrada);
+
+      if (isNaN(salario) || salario <= 0) {
+        alert("Valor inválido. Tente novamente.");
+        return;
+      }
+
+      let anoAtual = new Date().getFullYear();
+      let percentual = 0.0015; // 0.15%
+
+      for (let ano = 1996; ano <= anoAtual; ano++) {
+        salario += salario * percentual;
+        percentual *= 2;
+      }
+
+      document.getElementById("saida").innerHTML =
+        `Salário atual (com salário informado): R$ ${salario.toFixed(2)}`;
+    }
+  </script>
+
+</body>
+</html>
