@@ -2,33 +2,80 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Programa JS com prompt</title>
+  <title>Pares e Ímpares</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f2f6;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #2d3436;
+    }
+
+    button {
+      background-color: #0984e3;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #74b9ff;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #2d3436;
+    }
+  </style>
 </head>
 <body>
-  <h2>Abra o console para ver o programa rodando</h2>
-  <script>   
 
-  let pares = 0;
-  let impares = 0;
+  <h1>Contador de Pares e Ímpares</h1>
+  <button onclick="contarParesImpares()">Iniciar</button>
 
-  for (let i = 1; i <= 10; i++) {
-  let numero = parseInt(prompt(`Digite o ${i}º número inteiro:`));
+  <div class="resultado" id="saida"></div>
 
-  if (isNaN(numero)) {
-      alert("Você digitou um valor inválido. Tente novamente.");
-      i--;
-      continue;
-  }
+  <script>
+    function contarParesImpares() {
+      let pares = 0;
+      let impares = 0;
 
-  if (numero % 2 === 0) {
-      pares++;
-  } else {
-      impares++;
-  }
-  }
+      for (let i = 1; i <= 10; i++) {
+        let entrada = prompt(`Digite o ${i}º número inteiro:`);
+        let numero = parseInt(entrada);
 
-  alert(`Quantidade de números pares: ${pares}\nQuantidade de números ímpares: ${impares}`);
+        if (isNaN(numero)) {
+          alert("Valor inválido! Digite um número inteiro.");
+          i--; // repete a tentativa
+          continue;
+        }
 
-    </script>
+        if (numero % 2 === 0) {
+          pares++;
+        } else {
+          impares++;
+        }
+      }
+
+      document.getElementById("saida").innerHTML = `
+        Quantidade de números <strong>pares</strong>: ${pares}<br>
+        Quantidade de números <strong>ímpares</strong>: ${impares}
+      `;
+    }
+  </script>
+
 </body>
 </html>

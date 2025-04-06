@@ -2,27 +2,73 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Programa JS com prompt</title>
+  <title>Comparação Populacional</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ecf0f1;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #2c3e50;
+    }
+  </style>
 </head>
 <body>
-  <h2>Abra o console para ver o programa rodando</h2>
+
+  <h1>População A x População B</h1>
+  <button onclick="compararPopulacoes()">Calcular Anos Necessários</button>
+
+  <div class="resultado" id="saida"></div>
+
   <script>
-  let populacaoA = 80000;
-  let populacaoB = 200000;
-  let taxaCrescimentoA = 0.03;
-  let taxaCrescimentoB = 0.015;
-  let anos = 0;
+    function compararPopulacoes() {
+      let populacaoA = 80000;
+      let populacaoB = 200000;
+      let taxaA = 0.03;  // 3%
+      let taxaB = 0.015; // 1.5%
+      let anos = 0;
 
-  while (populacaoA < populacaoB) {
-  populacaoA += populacaoA * taxaCrescimentoA;
-  populacaoB += populacaoB * taxaCrescimentoB;
-  anos++;
-  }
+      while (populacaoA < populacaoB) {
+        populacaoA += populacaoA * taxaA;
+        populacaoB += populacaoB * taxaB;
+        anos++;
+      }
 
-  console.log(`Levará ${anos} anos para a população do país A ultrapassar ou igualar a população do país B.`);
-  console.log(`População final de A: ${Math.floor(populacaoA)}`);
-  console.log(`População final de B: ${Math.floor(populacaoB)}`);
-  
+      document.getElementById("saida").innerHTML = `
+        População de A ultrapassará ou igualará a de B em <strong>${anos} anos</strong>.<br><br>
+        População final de A: ${Math.round(populacaoA)} habitantes<br>
+        População final de B: ${Math.round(populacaoB)} habitantes
+      `;
+    }
   </script>
+
 </body>
 </html>

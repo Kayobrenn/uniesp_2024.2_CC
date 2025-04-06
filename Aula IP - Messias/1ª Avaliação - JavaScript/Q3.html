@@ -2,43 +2,86 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Programa JS com prompt</title>
+  <title>Maior, Menor e Soma</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #2d3436;
+    }
+
+    button {
+      background-color: #00b894;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00cec9;
+    }
+
+    .resultado {
+      margin-top: 25px;
+      font-size: 18px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #2d3436;
+    }
+  </style>
 </head>
 <body>
+
+  <h1>Maior, Menor e Soma de N Números</h1>
+  <button onclick="analisarNumeros()">Iniciar Análise</button>
+
+  <div class="resultado" id="saida"></div>
+
   <script>
-    
-    let N = parseInt(prompt("Quantos números você deseja digitar?"));
+    function analisarNumeros() {
+      let quantidade = parseInt(prompt("Quantos números você deseja informar?"));
 
-    if (isNaN(N) || N <= 0) {
-    alert("Por favor, digite um número válido maior que zero.");
-    } else {
-    let soma = 0;
-    let menor = null;
-    let maior = null;
+      if (isNaN(quantidade) || quantidade <= 0) {
+        alert("Por favor, insira uma quantidade válida (maior que zero).");
+        return;
+      }
 
-    for (let i = 1; i <= N; i++) {
-        let numero = parseFloat(prompt(`Digite o ${i}º número:`));
+      let numeros = [];
+      for (let i = 1; i <= quantidade; i++) {
+        let valor = parseFloat(prompt(`Digite o ${i}º número:`));
 
-        if (isNaN(numero)) {
-        alert("Valor inválido. Tente novamente.");
-        i--;
-        continue;
+        if (isNaN(valor)) {
+          alert("Entrada inválida. Digite um número.");
+          i--; // repete a entrada inválida
+          continue;
         }
 
-        soma += numero;
+        numeros.push(valor);
+      }
 
-        if (menor === null || numero < menor) {
-        menor = numero;
-        }
+      let maior = Math.max(...numeros);
+      let menor = Math.min(...numeros);
+      let soma = numeros.reduce((acc, n) => acc + n, 0);
 
-        if (maior === null || numero > maior) {
-        maior = numero;
-        }
+      document.getElementById("saida").innerHTML = `
+        Números informados: ${numeros.join(", ")}<br><br>
+        <strong>Maior valor:</strong> ${maior}<br>
+        <strong>Menor valor:</strong> ${menor}<br>
+        <strong>Soma total:</strong> ${soma}
+      `;
     }
+  </script>
 
-    alert(`Menor número: ${menor}\nMaior número: ${maior}\nSoma total: ${soma}`);
-    }
-
-</script>
 </body>
 </html>
