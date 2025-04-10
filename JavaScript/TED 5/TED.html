@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Alunos Aprovados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+    }
+    .aluno {
+      background: #e0ffe0;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-left: 5px solid #4CAF50;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Alunos com média maior ou igual a 7</h1>
+  <div id="resultado"></div>
+
+  <script>
+    const alunos = [
+      { nome: "Maria Joaquinha", notas: [8, 7.5, 9], curso: "Sistemas para Internet" },
+      { nome: "João Ricardo", notas: [8, 8.5, 5], curso: "Direito" },
+      { nome: "José Henrique", notas: [4, 10, 7], curso: "Administração" },
+      { nome: "Pedro da Silva", notas: [6, 7.6, 7.5], curso: "Sistemas para Internet" },
+      { nome: "Silvana Morais", notas: [6, 7.5, 9.5], curso: "Sistemas de Informação" },
+      { nome: "Patricia Castro", notas: [1, 9, 10], curso: "Arquitetura" },
+      { nome: "Joana Ribeiro", notas: [8, 9, 9], curso: "Contabilidade" },
+      { nome: "Rafael Rocha", notas: [4, 4, 9], curso: "Sistemas para Internet" },
+      { nome: "Gustavo Henrique", notas: [8, 7.5, 5], curso: "Sistemas para Internet" }
+    ];
+
+    function imprimirAprovados(alunos) {
+      const resultadoDiv = document.getElementById("resultado");
+
+      alunos.forEach(aluno => {
+        const soma = aluno.notas.reduce((total, nota) => total + nota, 0);
+        const media = soma / aluno.notas.length;
+
+        if (media >= 7) {
+          const alunoDiv = document.createElement("div");
+          alunoDiv.classList.add("aluno");
+          alunoDiv.innerHTML = `
+            <strong>Nome:</strong> ${aluno.nome}<br>
+            <strong>Média:</strong> ${media.toFixed(2)}<br>
+            <strong>Curso:</strong> ${aluno.curso}
+          `;
+          resultadoDiv.appendChild(alunoDiv);
+        }
+      });
+    }
+    imprimirAprovados(alunos);
+  </script>
+
+</body>
+</html>
